@@ -1,3 +1,3 @@
-from .tracker import PyTrack
+from tracker import PyTrack
 
 __all__ = ["PyTrack"]

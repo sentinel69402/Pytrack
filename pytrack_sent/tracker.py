@@ -3,7 +3,7 @@ import time
 import json
 from typing import Any,Callable,Dict,Optional,TypeVar,cast
 from functools import wraps
-from .types import TrackStats,TrackedFunc
+from pytrack_types import TrackStats,TrackedFunc
 
 T = TypeVar("T",bound=Callable[...,Any])
 
