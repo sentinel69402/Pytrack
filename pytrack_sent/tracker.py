@@ -4,6 +4,8 @@ import json
 from typing import Any,Callable,Dict,Optional,TypeVar,cast
 from functools import wraps
 from .pytrack_types import TrackStats
+import matplotlib.pyplot as plt
+import numpy as np
 
 T = TypeVar("T",bound=Callable[...,Any])
 
@@ -62,3 +64,37 @@ class PyTrack:
             print("\nEvents:")
             for event,count in self.events.items():
                 print(f" - {event}: {count} times")
+
+    def plot_performance(self,save_path: Optional[str] = None) -> None:
+        """Generate and optionally save performance visualization plots.
+            Args:
+                save_path: Optional path to save the plot. If None, displays plot instead.
+        """
+        if not self.functions:
+            print("No performance data to plot")
+            return
+        
+        fig, (ax1,ax2) = plt.subplots(2,1,figsize=(10,10))
+        fig.suptitle(f'PyTrack Performance Report: {self.name}')
+
+        names = list(self.functions.keys())
+        calls = [data['calls'] for data in self.functions.values()]
+        avg_times = [data['avg_time'] for data in self.functions.values()]
+
+        ax1.bar(names,calls)
+        ax1.set_title('Function Calls')
+        ax1.set_xticklabels(names,rotation=45)
+        ax1.set_ylabel('Number of Calls')
+
+        ax2.bar(names,avg_times)
+        ax2.set_title('Average Exec. Time')
+        ax2.set_xticklabels(names,rotation=45)
+        ax2.set_ylabel('Time (seconds)')
+
+        plt.tight_layout()
+
+        if save_path:
+            plt.savefig(save_path)
+            plt.close()
+        else:
+            plt.show()
