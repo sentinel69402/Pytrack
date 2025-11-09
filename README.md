@@ -66,7 +66,7 @@ A built-in dashboard for visualizing tracked data in real-time using a simple py
 # **Planned Integrations**
 * Discord.py command profiling
 
-* Matplotlib and Plotly report generation
+* Matplotlib and Plotly report generation [ADDED]
 
 * Cloud export support (JSON/CSV)
 
