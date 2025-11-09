@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: pytrack-sent
-Version: 0.2
+Version: 0.2.5
 Summary: Lightweight Python performance & event tracker
 Home-page: https://github.com/sentinel69402/Pytrack
 Author: sentinel
@@ -10,7 +10,9 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Requires-Dist: typing-extensions; python_version < "3.10"
+Dynamic: license-file
 
 # **PyTrack -- Efortless Performance Tracking for Python**
 Track. Analyze. Improve
@@ -80,7 +82,7 @@ A built-in dashboard for visualizing tracked data in real-time using a simple py
 # **Planned Integrations**
 * Discord.py command profiling
 
-* Matplotlib and Plotly report generation
+* Matplotlib and Plotly report generation [ADDED]
 
 * Cloud export support (JSON/CSV)
 
